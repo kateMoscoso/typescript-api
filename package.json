@@ -1,0 +1,14 @@
+{
+  "name": "typescript-api",
+  "version": "1.0.0",
+  "description": "type script base api",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "typyscript"
+  ],
+  "author": "Kate Moscoso",
+  "license": "ISC"
+}
