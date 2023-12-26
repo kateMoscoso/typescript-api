@@ -9,5 +9,5 @@ function middlewares(app: Express) {
   app.use(urlencoded({ extended: true }));
   app.use(morgan('combined'));
 }
-
+  
 export default middlewares;
