@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { handleError } from '../http/handle-error';
+import { handleError } from '../../../infrastructure/http/handle-error';
 
 export async function createJourneyController(req: Request, res: Response) {
   try {

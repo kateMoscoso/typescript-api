@@ -31,4 +31,27 @@ describe('Post /journey', () => {
     expect(response.status).toBe(400);
   });
 
+  it('should get a response 400 restriction of number people is not correct', async () => {
+    const journey = {
+      id: 1,
+      people: 7,
+    };
+
+    const response = await request(server).post('/journey').send(journey);
+
+    expect(response.status).toBe(400);
+  });
+
+  it('should get a response 202 when journey is accepted', async () => {
+    const journey = {
+      id: 1,
+      people: 6,
+    };
+
+    const response = await request(server).post('/journey').send(journey);
+
+    expect(response.status).toBe(202);
+  });
+
+
 });

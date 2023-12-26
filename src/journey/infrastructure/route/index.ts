@@ -1,6 +1,8 @@
 import { Router, Express, Request, Response } from 'express';
 import httpStatus from 'http-status';
 import createJourneyValidator from '../middlewares/validators/create-journey-validators';
+import { createJourneyController } from '../controllers/create-journey-controllers';
+import { handleRoute } from '../../../infrastructure/http/handle-route';
 
 function journeyRoutes(app: Express) {
   const router = Router();
@@ -8,9 +10,8 @@ function journeyRoutes(app: Express) {
   router.post(
     '/',
     createJourneyValidator(),
-    (req: Request, res: Response) => {
-        return res.status(httpStatus.OK).json();
-      });
+    handleRoute(createJourneyController)
+    );
 
   router.all('/', (req, res) => {
     return res.status(httpStatus.BAD_REQUEST).json();
