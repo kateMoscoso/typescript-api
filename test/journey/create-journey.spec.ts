@@ -52,6 +52,4 @@ describe('Post /journey', () => {
 
     expect(response.status).toBe(202);
   });
-
-
 });

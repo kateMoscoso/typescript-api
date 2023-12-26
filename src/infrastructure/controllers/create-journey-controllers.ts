@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { handleError } from '../../../infrastructure/http/handle-error';
+import { handleError } from '../http/handle-error';
 import httpStatus from 'http-status';
 import { createJourneyUseCase } from '../../application/create-journey-usecase';
 import { JourneyState } from '../../domain/Journey';

@@ -1,5 +1,5 @@
 import { Express, Request, Response } from 'express';
-import journeyRoutes from '../../journey/infrastructure/route';
+import journeyRoutes from './journey';
 
 function routes(app: Express) {
   app.get('/status', (req: Request, res: Response) => {

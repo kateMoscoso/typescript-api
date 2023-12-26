@@ -1,4 +1,4 @@
-import express, { Express, Request, Response  } from 'express';
+import express, { Express, Request, Response } from 'express';
 import middlewares from './infrastructure/middlewares';
 import routes from './infrastructure/routes';
 
@@ -9,6 +9,5 @@ middlewares(app);
 
 // routes
 routes(app);
-
 
 export default app;
