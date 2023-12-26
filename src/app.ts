@@ -10,4 +10,8 @@ app.get('/status', (req: Request, res: Response) => {
     res.status(200).json();
   });
 
+  app.post('/journey', (req: Request, res: Response) => {
+    res.status(200).json();
+  });
+
 export default app;
