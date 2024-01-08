@@ -2,7 +2,7 @@ import Joi from 'joi';
 import {
   validationHandler,
   ValidationRequestType,
-} from '../../../../infrastructure/middlewares/validation-handler';
+} from '../validation-handler';
 
 const createJourneySchema = Joi.object().keys({
   id: Joi.number().integer().min(1).required(),
