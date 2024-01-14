@@ -2,7 +2,7 @@
 module.exports = {
     extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
     parser: '@typescript-eslint/parser',
-    plugins: ['@typescript-eslint'],
+    plugins: ['@typescript-eslint','import', 'prettier', 'deprecation', 'strict-null-checks', 'typescript', 'simple-import-sort'],
     root: true,
     rules: {
       'prettier/prettier': 'warn',
@@ -13,6 +13,9 @@ module.exports = {
       'ordered-imports': [true],
       'deprecation/deprecation': 'warn',
       'strict-null-checks/all': 'warn',
+      'typescript/no-explicit-any': 'warn',
+      'simple-import-sort/imports': 'error',
+      'simple-import-sort/exports': 'error',
       '@typescript-eslint/typedef': [
         'warn',
         {
