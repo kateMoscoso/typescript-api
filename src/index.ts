@@ -1,9 +1,13 @@
-import app from './app';
-import * as dotenv from 'dotenv';
+import { App } from './app';
 
-dotenv.config();
-const port = process.env.PORT || '9091';
+try {
+  new App().start();
+} catch (e) {
+  console.log(e);
+  process.exit(1);
+}
 
-app.listen(port, () => {
-  console.log(`[server]: Server is running at http://localhost:${port}`);
+process.on('uncaughtException', err => {
+  console.log('uncaughtException', err);
+  process.exit(1);
 });

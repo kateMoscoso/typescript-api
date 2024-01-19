@@ -1,13 +1,20 @@
-import express, { Express, Request, Response } from 'express';
-import middlewares from './infrastructure/middlewares';
-import routes from './infrastructure/routes';
+import { Server } from './server';
 
-const app: Express = express();
+export class App {
+  server?: Server;
 
-// middlewares
-middlewares(app);
+  async start() {
+    const port = process.env.PORT || '4001';
+    this.server = new Server(port);
+    return this.server.listen();
+  }
 
-// routes
-routes(app);
+  get httpServer() {
+    return this.server?.getHTTPServer();
+  }
 
-export default app;
+  async stop() {
+    return this.server?.stop();
+  }
+
+}
