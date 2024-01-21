@@ -17,17 +17,21 @@ export class Server {
 
     registerRoutes(this.express);
 
-    this.express.use((err: Error, req: Request, res: Response, next: Function) => {
-      console.log(err);
-      res.status(httpStatus.INTERNAL_SERVER_ERROR).send(err.message);
-    });
+    this.express.use(
+      (err: Error, req: Request, res: Response, next: Function) => {
+        console.log(err);
+        res.status(httpStatus.INTERNAL_SERVER_ERROR).send(err.message);
+      },
+    );
   }
 
   async listen(): Promise<void> {
     return new Promise(resolve => {
       this.httpServer = this.express.listen(this.port, () => {
         console.log(
-          `  Mock Backend App is running at http://localhost:${this.port} in ${this.express.get('env')} mode`
+          `  Mock Backend App is running at http://localhost:${
+            this.port
+          } in ${this.express.get('env')} mode`,
         );
         console.log('  Press CTRL-C to stop\n');
         resolve();

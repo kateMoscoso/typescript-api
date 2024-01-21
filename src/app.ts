@@ -16,5 +16,4 @@ export class App {
   async stop() {
     return this.server?.stop();
   }
-
 }

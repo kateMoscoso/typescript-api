@@ -1,11 +1,19 @@
-import { Express, Request, Response } from 'express';
-import journeyRoutes from './journey';
+import { Express, Router } from 'express';
+import { globSync } from 'glob';
 
-function routes(app: Express) {
-  app.get('/status', (req: Request, res: Response) => {
-    res.status(200).json();
-  });
-  journeyRoutes(app);
+function registerRoutes(app: Express) {
+  const router = Router();
+  app.use('/', router);
+  console.log(__dirname);
+  const routes = globSync(__dirname + '/**/*.route.*').filter(
+    file => !file.endsWith('.map'),
+  );
+  routes.map(route => register(route, router));
 }
 
-export default routes;
+function register(routePath: string, router: Router) {
+  const route = require(routePath);
+  route.register(router);
+}
+
+export default registerRoutes;
